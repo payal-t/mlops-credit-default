@@ -8,7 +8,6 @@ This is a personal MLOps project based on a [Kaggle](https://www.kaggle.com/data
 
 It was developed as part of the this [End-to-end MLOps with Databricks](https://maven.com/marvelousmlops/mlops-with-databricks) course and you can walk through it together with this [Medium](https://medium.com/@benitomartin/8cd9a85cc3c0) publication.
 
-Feel free to ⭐ and clone this repo 😉
 
 ## Tech Stack
 

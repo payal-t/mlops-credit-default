@@ -76,8 +76,10 @@ try:
     columns_wo_id.remove("Id")
 
     # Convert train and test sets to Pandas DataFrames
-    train_pdf = spark.table(f"{catalog_name}.{schema_name}.train_set").toPandas()
-    test_set = spark.table(f"{catalog_name}.{schema_name}.test_set").toPandas()
+    # train_pdf = spark.table(f"{catalog_name}.{schema_name}.train_set").toPandas()
+    train_pdf = pd.read_csv(f"{root_path}/data/train_set.csv")
+    # test_set = spark.table(f"{catalog_name}.{schema_name}.test_set").toPandas()
+    test_set = pd.read_csv(f"{root_path}/data/test_set.csv")
 
     # Now use create_training_set to create balanced training set
     # Drop the original features that will be looked up from the feature store
@@ -104,7 +106,8 @@ try:
         ],
         exclude_columns=["Update_timestamp_utc"],
     )
-    training_df = training_set.load_df().toPandas()
+    # training_df = training_set.load_df().toPandas()
+    training_df = train_pdf # Use the local CSV directly
     logger.info("Training set created and loaded.")
 
     # Prepare train and test datasets

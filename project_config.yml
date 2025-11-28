@@ -1,23 +1,42 @@
-catalog_name: credit
-schema_name: default
-pipeline_id: 4be66e88-11e8-4988-9fa3-459b9b28a83c # Pipeline Id under "features_balanced_online" table in catalog. Created in model_serving_feat_lookup_notebook.py
+# project_config.yml
 
+catalog_name: "credit_default_catalog"
+schema_name: "credit_default_schema"
+pipeline_id: "credit_default_pipeline"
 
-parameters:
-  learning_rate: 0.05
-  random_state: 42
-  force_col_wise: true
+ab_test: {}  # Must be a dictionary
 
-ab_test:
-  learning_rate_a: 0.05
-  learning_rate_b: 0.1
-  force_col_wise: true
+features:
+  clean:
+    - ID
+    - LIMIT_BAL
+    - SEX
+    - EDUCATION
+    - MARRIAGE
+    - AGE
+    - PAY_0
+    - PAY_2
+    - PAY_3
+    - PAY_4
+    - PAY_5
+    - PAY_6
+    - BILL_AMT1
+    - BILL_AMT2
+    - BILL_AMT3
+    - BILL_AMT4
+    - BILL_AMT5
+    - BILL_AMT6
+    - PAY_AMT1
+    - PAY_AMT2
+    - PAY_AMT3
+    - PAY_AMT4
+    - PAY_AMT5
+    - PAY_AMT6
+  robust: []  # Empty list (you can add robust features here if needed)
 
 num_features:
-  - name: ID
-    dtype: int64
   - name: LIMIT_BAL
-    dtype: float64
+    dtype: int64
   - name: SEX
     dtype: int64
   - name: EDUCATION
@@ -39,76 +58,33 @@ num_features:
   - name: PAY_6
     dtype: int64
   - name: BILL_AMT1
-    dtype: float64
+    dtype: int64
   - name: BILL_AMT2
-    dtype: float64
+    dtype: int64
   - name: BILL_AMT3
-    dtype: float64
+    dtype: int64
   - name: BILL_AMT4
-    dtype: float64
+    dtype: int64
   - name: BILL_AMT5
-    dtype: float64
+    dtype: int64
   - name: BILL_AMT6
-    dtype: float64
+    dtype: int64
   - name: PAY_AMT1
-    dtype: float64
+    dtype: int64
   - name: PAY_AMT2
-    dtype: float64
+    dtype: int64
   - name: PAY_AMT3
-    dtype: float64
+    dtype: int64
   - name: PAY_AMT4
-    dtype: float64
+    dtype: int64
   - name: PAY_AMT5
-    dtype: float64
+    dtype: int64
   - name: PAY_AMT6
-    dtype: float64
-
+    dtype: int64
 
 target:
   - name: default.payment.next.month
+    new_name: default
     dtype: int64
-    new_name: Default
 
-features:
-  # Clean Column Names
-  clean:
-    - Id
-    - Limit_bal
-    - Sex
-    - Education
-    - Marriage
-    - Age
-    - Pay_0
-    - Pay_2
-    - Pay_3
-    - Pay_4
-    - Pay_5
-    - Pay_6
-    - Bill_amt1
-    - Bill_amt2
-    - Bill_amt3
-    - Bill_amt4
-    - Bill_amt5
-    - Bill_amt6
-    - Pay_amt1
-    - Pay_amt2
-    - Pay_amt3
-    - Pay_amt4
-    - Pay_amt5
-    - Pay_amt6
-
-  # Scaling Features
-  robust:
-    - Limit_bal
-    - Bill_amt1
-    - Bill_amt2
-    - Bill_amt3
-    - Bill_amt4
-    - Bill_amt5
-    - Bill_amt6
-    - Pay_amt1
-    - Pay_amt2
-    - Pay_amt3
-    - Pay_amt4
-    - Pay_amt5
-    - Pay_amt6
+parameters: {}  # Empty dictionary, you can add hyperparameters here if needed
