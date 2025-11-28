@@ -159,5 +159,3 @@ Some project files require a Databricks authentication token. This token allows 
     ```
 
 **Note**: For GitHub Actions (in `cd.yml`), the token must also be added as a GitHub Secret in your repository settings.
-
-Now you can follow the code along the [Medium](https://medium.com/@benitomartin/8cd9a85cc3c0) publication or use it as supporting material if you enroll in the [course](https://maven.com/marvelousmlops/mlops-with-databricks). The blog does not contain an explanation of all files. Just the main ones used for the final deployment, but you can test out other files as well 🙂.
